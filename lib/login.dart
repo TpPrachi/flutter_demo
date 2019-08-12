@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:email_validator/email_validator.dart';
+// import 'package:flutter_signin_button/flutter_signin_button.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -40,10 +41,11 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold(
       key: scaffoldKey,
       appBar: AppBar(
+        backgroundColor: Colors.white,
         title: Text('Sign Up', 
-        style: TextStyle( fontWeight: FontWeight.bold, fontSize: 17.0 )),
+        style: TextStyle( fontWeight: FontWeight.bold, fontSize: 18.0, color: Colors.black )),
         leading: IconButton(icon:Icon(Icons.arrow_back_ios),
-          // onPressed:() => Navigator.pop(context, true),
+          color: Colors.black,
           onPressed: (){}
         )
       ),      
@@ -54,29 +56,24 @@ class _LoginPageState extends State<LoginPage> {
           child: Column(
             children: [
               TextFormField(
-                decoration: InputDecoration(labelText: 'Your Name'),
+                decoration: InputDecoration(labelText: 'Your Name', icon: Icon(Icons.person)),                
                 onSaved: (val) => _name = val,
               ),
               TextFormField(
-                decoration: InputDecoration(labelText: 'Email'),
+                decoration: InputDecoration(labelText: 'Email', icon: Icon(Icons.email)),
                 validator: (val) => !EmailValidator.Validate(val, true)
                     ? 'Not a valid email.'
                     : null,
                 onSaved: (val) => _email = val,
               ),
               TextFormField(
-                decoration: InputDecoration(labelText: 'Password'),
+                decoration: InputDecoration(labelText: 'Password', icon: Icon(Icons.lock_outline)),
                 validator: (val) =>
                     val.length < 4 ? 'Password too short.' : null,
                 onSaved: (val) => _password = val,
                 obscureText: true,
               ),
               Padding(padding: EdgeInsets.only(top: 20.0)),
-              // Center(                
-              //   // child: Text("Main Screen"),
-              //       child: Text('Terms of Use', 
-              //         style: TextStyle( fontWeight: FontWeight.bold, fontSize: 12.0 )), 
-              // ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
@@ -85,16 +82,16 @@ class _LoginPageState extends State<LoginPage> {
                 Text('Privacy Policy', style: TextStyle( fontWeight: FontWeight.bold, fontSize: 12.0 )),
               ]),
               Padding(padding: EdgeInsets.only(top: 20.0)),
-              ButtonTheme(
-                minWidth: 350.0,
+              Container(
+                width: 350.0,
                 height: 40.0,
                 child: RaisedButton(
-                  // color: Theme.of(context).accentColor,
+                  elevation: 10.0,
                   padding: const EdgeInsets.all(8.0),
                   onPressed: _submitCommand,
                   child: Text('Sign Up'),
                   textColor: Colors.white,
-                  color: Colors.black,
+                  color: Colors.black
                 ),
               ),
               Padding(padding: EdgeInsets.only(top: 20.0)),
@@ -103,6 +100,50 @@ class _LoginPageState extends State<LoginPage> {
                 children: <Widget>[
                 Text('Or sign up with social account', style: TextStyle( fontWeight: FontWeight.bold, fontSize: 14.0 )),
               ]),
+              Padding(padding: EdgeInsets.only(top: 20.0)),
+              Container(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                      Container(
+                        width: 150.0,
+                        height: 40.0,
+                        child: RaisedButton(    
+                            elevation: 4.0,                      
+                            padding: const EdgeInsets.all(10.0),
+                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+                            onPressed: () {},
+                            child: Image.asset(
+                                'images/facebook.png', 
+                                width: 20.0,
+                                height: 20.0,
+                            ),
+                            textColor: Colors.white,
+                            color: Colors.lightBlue[900]
+                        ),
+                      ),
+                      Container(
+                        width: 150.0,
+                        height: 40.0,
+                        child: RaisedButton(
+                          elevation: 4.0,     
+                          padding: const EdgeInsets.all(10.0),
+                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+                          onPressed: () {},
+                          child: Image.asset(
+                              'images/twitter.png', 
+                              width: 20.0,
+                              height: 20.0,
+                          ),
+                          textColor: Colors.white,
+                          color: Colors.lightBlueAccent[400]
+                      )
+                      ),
+                      
+                  ],
+                )
+              ),
+              
               // FloatingActionButton.extended(
               //   onPressed: () {},
               //   icon: Icon(Icons.save),
@@ -121,3 +162,15 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 }
+
+// SignInButton(
+//   Buttons.Facebook,
+//   mini: true,
+//   onPressed: () {},
+  
+// ),
+// SignInButton(
+//   Buttons.Twitter,
+//   mini: true,
+//   onPressed: () {},
+// ),

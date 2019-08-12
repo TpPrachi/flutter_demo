@@ -9,8 +9,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Sign Up',
       theme: ThemeData(
-        // primarySwatch: Colors.blueGrey,
-        primaryColor: Colors.white,
+        // accentColor: Colors.blue,
+        // primaryColor: Colors.white,
+        primarySwatch: Colors.blue,
       ),
       home: LoginPage(),
       debugShowCheckedModeBanner: false
