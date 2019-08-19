@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_demo/login.dart';
+// import 'package:flutter_demo/login.dart';
+import 'package:flutter_demo/listview.dart';
 
 void main() => runApp(MyApp());
 
@@ -13,7 +14,8 @@ class MyApp extends StatelessWidget {
         // primaryColor: Colors.white,
         primarySwatch: Colors.blue,
       ),
-      home: LoginPage(),
+      // home: LoginPage(),
+      home: ListViewPage(),
       debugShowCheckedModeBanner: false
     );
   }
